@@ -8,24 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		951E92811D87DB1500BB5818 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E92801D87DB1500BB5818 /* AppDelegate.swift */; };
-		951E92831D87DB1500BB5818 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 951E92821D87DB1500BB5818 /* GameScene.sks */; };
 		951E92851D87DB1500BB5818 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E92841D87DB1500BB5818 /* GameScene.swift */; };
 		951E92871D87DB1500BB5818 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E92861D87DB1500BB5818 /* GameViewController.swift */; };
 		951E928A1D87DB1500BB5818 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951E92881D87DB1500BB5818 /* Main.storyboard */; };
-		951E928C1D87DB1500BB5818 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 951E928B1D87DB1500BB5818 /* Assets.xcassets */; };
 		951E928F1D87DB1500BB5818 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951E928D1D87DB1500BB5818 /* LaunchScreen.storyboard */; };
+		951E929A1D87DFDF00BB5818 /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 951E92981D87DDC800BB5818 /* munro.ttf */; };
+		951E929B1D87DFE200BB5818 /* munro_small.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 951E92971D87DDC800BB5818 /* munro_small.ttf */; };
+		951E929C1D87DFE500BB5818 /* munro_narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 951E92961D87DDC800BB5818 /* munro_narrow.ttf */; };
+		951E929E1D87E0A000BB5818 /* thin_pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 951E929D1D87E0A000BB5818 /* thin_pixel-7.ttf */; };
+		951E92A01D87E16C00BB5818 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E929F1D87E16C00BB5818 /* SKButton.swift */; };
+		951E92A61D87E53500BB5818 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 951E92A51D87E53500BB5818 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		951E927D1D87DB1500BB5818 /* TextBasedGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextBasedGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		951E92801D87DB1500BB5818 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		951E92821D87DB1500BB5818 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		951E92841D87DB1500BB5818 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		951E92861D87DB1500BB5818 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		951E92891D87DB1500BB5818 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		951E928B1D87DB1500BB5818 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		951E928E1D87DB1500BB5818 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		951E92901D87DB1500BB5818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		951E92961D87DDC800BB5818 /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
+		951E92971D87DDC800BB5818 /* munro_small.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_small.ttf; sourceTree = "<group>"; };
+		951E92981D87DDC800BB5818 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
+		951E929D1D87E0A000BB5818 /* thin_pixel-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "thin_pixel-7.ttf"; sourceTree = "<group>"; };
+		951E929F1D87E16C00BB5818 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
+		951E92A51D87E53500BB5818 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,36 @@
 		951E927F1D87DB1500BB5818 /* TextBasedGame */ = {
 			isa = PBXGroup;
 			children = (
+				951E92A51D87E53500BB5818 /* Assets.xcassets */,
+				951E92A71D87E56000BB5818 /* Fonts */,
+				951E92AA1D87E63900BB5818 /* CustomUI */,
 				951E92801D87DB1500BB5818 /* AppDelegate.swift */,
-				951E92821D87DB1500BB5818 /* GameScene.sks */,
 				951E92841D87DB1500BB5818 /* GameScene.swift */,
 				951E92861D87DB1500BB5818 /* GameViewController.swift */,
 				951E92881D87DB1500BB5818 /* Main.storyboard */,
-				951E928B1D87DB1500BB5818 /* Assets.xcassets */,
 				951E928D1D87DB1500BB5818 /* LaunchScreen.storyboard */,
 				951E92901D87DB1500BB5818 /* Info.plist */,
 			);
 			path = TextBasedGame;
+			sourceTree = "<group>";
+		};
+		951E92A71D87E56000BB5818 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				951E92961D87DDC800BB5818 /* munro_narrow.ttf */,
+				951E92971D87DDC800BB5818 /* munro_small.ttf */,
+				951E929D1D87E0A000BB5818 /* thin_pixel-7.ttf */,
+				951E92981D87DDC800BB5818 /* munro.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		951E92AA1D87E63900BB5818 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				951E929F1D87E16C00BB5818 /* SKButton.swift */,
+			);
+			name = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,9 +156,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				951E92831D87DB1500BB5818 /* GameScene.sks in Resources */,
+				951E929C1D87DFE500BB5818 /* munro_narrow.ttf in Resources */,
 				951E928F1D87DB1500BB5818 /* LaunchScreen.storyboard in Resources */,
-				951E928C1D87DB1500BB5818 /* Assets.xcassets in Resources */,
+				951E929B1D87DFE200BB5818 /* munro_small.ttf in Resources */,
+				951E929E1D87E0A000BB5818 /* thin_pixel-7.ttf in Resources */,
+				951E929A1D87DFDF00BB5818 /* munro.ttf in Resources */,
+				951E92A61D87E53500BB5818 /* Assets.xcassets in Resources */,
 				951E928A1D87DB1500BB5818 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +176,7 @@
 				951E92851D87DB1500BB5818 /* GameScene.swift in Sources */,
 				951E92871D87DB1500BB5818 /* GameViewController.swift in Sources */,
 				951E92811D87DB1500BB5818 /* AppDelegate.swift in Sources */,
+				951E92A01D87E16C00BB5818 /* SKButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +328,7 @@
 				951E92951D87DB1500BB5818 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

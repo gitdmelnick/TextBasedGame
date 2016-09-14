@@ -30,15 +30,15 @@ class GameScene: SKScene {
         inputBtn.zPosition = 2
         
         
-        inventoryBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", buttonAction: createCustomInput)
+        inventoryBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", buttonAction: moveToInventory)
         inventoryBtn.position = CGPoint(x: UIFrame.size.width * 0.38, y: UIFrame.size.height - UIFrame.size.width * 0.072)
         inventoryBtn.zPosition = 2
         
-        statsBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", buttonAction: createCustomInput)
+        statsBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", buttonAction: moveToStats)
         statsBtn.position = CGPoint(x: UIFrame.size.width * 0.616, y: UIFrame.size.height - UIFrame.size.width * 0.072)
         statsBtn.zPosition = 2
         
-        groupBtn = SKButton(defaultButtonImage: "button_top_right", activeButtonImage: "button_top_right_a", buttonAction: createCustomInput)
+        groupBtn = SKButton(defaultButtonImage: "button_top_right", activeButtonImage: "button_top_right_a", buttonAction: moveToGroup)
         groupBtn.position = CGPoint(x: UIFrame.size.width * 0.851, y: UIFrame.size.height - UIFrame.size.width * 0.072)
         groupBtn.zPosition = 2
         
@@ -88,6 +88,21 @@ class GameScene: SKScene {
                 resize: false,
                 restore: true)),
                                   withKey:"movingGround")
+    }
+    
+    func moveToInventory() {
+        let scene: SKScene = InventoryScene(size: self.size)
+        self.view?.presentScene(scene)
+    }
+    
+    func moveToStats() {
+        let scene: SKScene = StatsScene(size: self.size)
+        self.view?.presentScene(scene)
+    }
+    
+    func moveToGroup() {
+        let scene: SKScene = GroupScene(size: self.size)
+        self.view?.presentScene(scene)
     }
     
     func createForeground() {
@@ -143,13 +158,19 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if playerCharacter.hasActions() {
-            playerCharacter.removeAllActions()
-            foreground.removeAllActions()
+        for touch in touches {
+            
+            if touch.locationInNode(UIFrame).y > UIFrame.size.height {
+                if playerCharacter.hasActions() {
+                    playerCharacter.removeAllActions()
+                    foreground.removeAllActions()
+                }
+                else {
+                    startAnimation()
+                }
+            }
         }
-        else {
-            startAnimation()
-        }
+   
     }
    
     override func update(currentTime: CFTimeInterval) {

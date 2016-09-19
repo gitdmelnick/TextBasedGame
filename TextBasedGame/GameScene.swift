@@ -7,46 +7,54 @@
 //
 
 import SpriteKit
+import UIKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, UITextFieldDelegate {
     
+    var entityManager: EntityManager!
     var inventoryBtn: SKNode!
     var statsBtn: SKNode!
     var groupBtn: SKNode!
     var inputBtn: SKNode!
     var scrollUpBtn: SKNode!
     var scrollDownBtn: SKNode!
+    
     var UIFrame: SKSpriteNode!
     var foreground: SKSpriteNode!
     var background: SKSpriteNode!
     var playerCharacter: SKSpriteNode!
+    
     var playerCharacterFrames: [SKTexture]!
     var foregroundTextures: [SKTexture]!
     
+    var textField: UITextField!
+    
+    let transition = SceneTransition()
+    
     func initializeButtons() {
         
-        inputBtn = SKButton(defaultButtonImage: "button_top_left", activeButtonImage: "button_top_left_a", buttonAction: createCustomInput)
+        inputBtn = SKButton(defaultButtonImage: "button_top_left", activeButtonImage: "button_top_left_a", text: "Input", buttonAction: activateTextfield)
         inputBtn.position = CGPoint(x: UIFrame.size.width * 0.145, y: UIFrame.size.height - UIFrame.size.width * 0.072)
         inputBtn.zPosition = 2
         
         
-        inventoryBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", buttonAction: moveToInventory)
+        inventoryBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", text: "Inventory", buttonAction: transition.moveToInventory)
         inventoryBtn.position = CGPoint(x: UIFrame.size.width * 0.38, y: UIFrame.size.height - UIFrame.size.width * 0.072)
         inventoryBtn.zPosition = 2
         
-        statsBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", buttonAction: moveToStats)
+        statsBtn = SKButton(defaultButtonImage: "button_center", activeButtonImage: "button_center_a", text: "Stats", buttonAction: transition.moveToStats)
         statsBtn.position = CGPoint(x: UIFrame.size.width * 0.616, y: UIFrame.size.height - UIFrame.size.width * 0.072)
         statsBtn.zPosition = 2
         
-        groupBtn = SKButton(defaultButtonImage: "button_top_right", activeButtonImage: "button_top_right_a", buttonAction: moveToGroup)
+        groupBtn = SKButton(defaultButtonImage: "button_top_right", activeButtonImage: "button_top_right_a", text: "Group", buttonAction: transition.moveToGroup)
         groupBtn.position = CGPoint(x: UIFrame.size.width * 0.851, y: UIFrame.size.height - UIFrame.size.width * 0.072)
         groupBtn.zPosition = 2
         
-        scrollUpBtn = SKButton(defaultButtonImage: "button_scroll_up", activeButtonImage: "button_scroll_up_a", buttonAction: createCustomInput)
+        scrollUpBtn = SKButton(defaultButtonImage: "button_scroll_up", activeButtonImage: "button_scroll_up_a", buttonAction: scrollUp)
         scrollUpBtn.position = CGPoint(x: UIFrame.size.width * 0.915, y: UIFrame.size.height - UIFrame.size.height * 0.4)
         scrollUpBtn.zPosition = 2
         
-        scrollDownBtn = SKButton(defaultButtonImage: "button_scroll_down", activeButtonImage: "button_scroll_down_a", buttonAction: createCustomInput)
+        scrollDownBtn = SKButton(defaultButtonImage: "button_scroll_down", activeButtonImage: "button_scroll_down_a", buttonAction: scrollDown)
         scrollDownBtn.position = CGPoint(x: UIFrame.size.width * 0.915, y: UIFrame.size.height - UIFrame.size.height * 0.76)
         scrollDownBtn.zPosition = 2
         
@@ -57,68 +65,32 @@ class GameScene: SKScene {
         addChild(scrollUpBtn)
         addChild(scrollDownBtn)
         
+    }
+    
+    func scrollUp() {
         
     }
     
-    func animateEntity(atlasName: String, entityName: String) -> [SKTexture]{
-        let movementAtlas = SKTextureAtlas(named: atlasName)
-        var animationFrames = [SKTexture]()
+    func scrollDown() {
         
-        let numImages = movementAtlas.textureNames.count - 1
-        for i in 1...numImages {
-            let textureName =  "\(entityName)_\(i)"
-            animationFrames.append(movementAtlas.textureNamed(textureName))
-        }
-        return animationFrames
     }
     
-    
-    func startAnimation() {
-        playerCharacterFrames = animateEntity("character_sprites", entityName: "pc_frame")
-        foregroundTextures = animateEntity("ground", entityName: "fg_grass")
-        playerCharacter.runAction(SKAction.repeatActionForever(
-            SKAction.animateWithTextures(playerCharacterFrames,
-                timePerFrame: 0.2,
-                resize: false,
-                restore: true)),
-                       withKey:"walkingInPlaceChar")
-        foreground.runAction(SKAction.repeatActionForever(
-            SKAction.animateWithTextures(foregroundTextures,
-                timePerFrame: 0.2,
-                resize: false,
-                restore: true)),
-                                  withKey:"movingGround")
+    func createTextField() {
+        textField = UITextField()
+        textField.borderStyle = UITextBorderStyle.None
+        textField.textColor = UIColor.whiteColor()
+        textField.font = UIFont(name: "munrosmall", size: 48)
+        textField.frame = CGRectMake(view!.bounds.width/3, view!.bounds.height / 3, 300, 40)
+        textField.userInteractionEnabled = false
+        textField.tintColor = UIColor.whiteColor()
+        
+        textField.delegate = self
+        self.view?.addSubview(textField)
     }
     
-    func moveToInventory() {
-        let scene: SKScene = InventoryScene(size: self.size)
-        self.view?.presentScene(scene)
-    }
-    
-    func moveToStats() {
-        let scene: SKScene = StatsScene(size: self.size)
-        self.view?.presentScene(scene)
-    }
-    
-    func moveToGroup() {
-        let scene: SKScene = GroupScene(size: self.size)
-        self.view?.presentScene(scene)
-    }
-    
-    func createForeground() {
-        foreground = SKSpriteNode(imageNamed: "fg_grass_1")
-        foreground.anchorPoint = CGPointZero
-        foreground.position = CGPoint(x: 0, y: UIFrame.size.height)
-        foreground.zPosition = 2
-        addChild(foreground)
-    }
-    
-    func createBackground() {
-        background = SKSpriteNode(imageNamed: "bg_sky_d_1")
-        background.anchorPoint = CGPointZero
-        background.position = CGPoint(x: 0, y: UIFrame.size.height)
-        background.zPosition = 1
-        addChild(background)
+    func activateTextfield() {
+        textField.userInteractionEnabled = true
+        textField.becomeFirstResponder()
     }
     
     func createFrame() {
@@ -129,28 +101,27 @@ class GameScene: SKScene {
         addChild(UIFrame)
     }
     
-    func createCustomInput() {
-        
-    }
-    
-    func createCharacter() {
-        playerCharacter = SKSpriteNode(imageNamed: "pc_frame_0")
-        playerCharacter.position = CGPoint(x: playerCharacter.size.width*2, y: UIFrame.size.height + playerCharacter.size.height)
-        playerCharacter.zPosition = 3
-        addChild(playerCharacter)
-    }
-    
     
     override func didMoveToView(view: SKView) {
+        createTextField()
+        entityManager = EntityManager(scene: self)
         createFrame()
         initializeButtons()
-        createBackground()
-        createForeground()
-        createCharacter()
-        startAnimation()
+        
+        let level = Level(bgImageName: "bg_sky_d_1", fgImageName: "fg_grass_1", position: CGPoint(x: 0, y: UIFrame.frame.size.height))
+        entityManager.add(level)
         /* Setup your scene here */
         
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        textField.text = ""
+        return true
+    }
+    
+    
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
@@ -158,22 +129,10 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in touches {
-            
-            if touch.locationInNode(UIFrame).y > UIFrame.size.height {
-                if playerCharacter.hasActions() {
-                    playerCharacter.removeAllActions()
-                    foreground.removeAllActions()
-                }
-                else {
-                    startAnimation()
-                }
-            }
-        }
-   
+
     }
    
     override func update(currentTime: CFTimeInterval) {
-        print("update")
+
     }
 }

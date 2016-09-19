@@ -22,9 +22,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>ATSApplicationFontsPath</key>
+	<string>Fonts</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
+		<string>munro_narrow.ttf</string>
+		<string>munrosmall.ttf</string>
+		<string>thin_pixel-7.ttf</string>
+		<string>munro.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

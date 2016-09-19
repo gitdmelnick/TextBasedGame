@@ -26,6 +26,28 @@ class SKButton: SKNode {
         addChild(activeButton)
     }
     
+    init(defaultButtonImage: String, activeButtonImage: String, text: String, buttonAction: () -> Void) {
+        defaultButton = SKSpriteNode(imageNamed: defaultButtonImage)
+        activeButton = SKSpriteNode(imageNamed: activeButtonImage)
+        activeButton.hidden = true
+        action = buttonAction
+        
+        let label = SKLabelNode(fontNamed: "munrosmall")
+        label.fontSize = 18
+        label.fontColor = SKColor.whiteColor()
+        label.position = CGPoint(x: defaultButton.size.width * 0.01, y: 0)
+        label.zPosition = 1
+        label.verticalAlignmentMode = .Center
+        label.text = text
+        
+        super.init()
+        
+        userInteractionEnabled = true
+        addChild(defaultButton)
+        addChild(activeButton)
+        addChild(label)
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         activeButton.hidden = false
         defaultButton.hidden = true

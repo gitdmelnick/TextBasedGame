@@ -29,9 +29,9 @@ class GameScene: SKScene, UITextFieldDelegate {
     
     var textField: UITextField!
     
-    let transition = SceneTransition()
-    
     func initializeButtons() {
+        
+        let transition = SceneTransition(size: self.size, currentScene: self.view!)
         
         inputBtn = SKButton(defaultButtonImage: "button_top_left", activeButtonImage: "button_top_left_a", text: "Input", buttonAction: activateTextfield)
         inputBtn.position = CGPoint(x: UIFrame.size.width * 0.145, y: UIFrame.size.height - UIFrame.size.width * 0.072)

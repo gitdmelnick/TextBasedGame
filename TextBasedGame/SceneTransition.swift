@@ -9,30 +9,42 @@
 import Foundation
 import SpriteKit
 
-class SceneTransition: GameScene {
+class SceneTransition: SKScene {
+    
+    var currentScene: SKView?
     
     func moveToInventory() {
         let scene: SKScene = InventoryScene(size: self.size)
-        self.view?.presentScene(scene)
+        currentScene?.presentScene(scene)
     }
     
     func moveToStats() {
         let scene: SKScene = StatsScene(size: self.size)
-        self.view?.presentScene(scene)
+        currentScene?.presentScene(scene)
     }
     
     func moveToGroup() {
         let scene: SKScene = GroupScene(size: self.size)
-        self.view?.presentScene(scene)
+        currentScene?.presentScene(scene)
     }
     
     func moveBack() {
-        
         let scene = GameScene(size: self.size)
-        
-        self.view?.presentScene(scene)
+        currentScene?.presentScene(scene)
         
     }
+    
+    override init(size: CGSize) {
+        super.init(size: size)
+    }
 
+    init(size: CGSize, currentScene: SKView) {
+        super.init()
+        self.currentScene = currentScene
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }

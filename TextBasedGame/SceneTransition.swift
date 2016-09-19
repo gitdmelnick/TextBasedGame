@@ -14,22 +14,23 @@ class SceneTransition: SKScene {
     var currentScene: SKView?
     
     func moveToInventory() {
-        let scene: SKScene = InventoryScene(size: self.size)
+        print(self.size)
+        let scene: SKScene = InventoryScene(size: (currentScene?.frame.size)!)
         currentScene?.presentScene(scene)
     }
     
     func moveToStats() {
-        let scene: SKScene = StatsScene(size: self.size)
+        let scene: SKScene = StatsScene(size: (currentScene?.frame.size)!)
         currentScene?.presentScene(scene)
     }
     
     func moveToGroup() {
-        let scene: SKScene = GroupScene(size: self.size)
+        let scene: SKScene = GroupScene(size: (currentScene?.frame.size)!)
         currentScene?.presentScene(scene)
     }
     
     func moveBack() {
-        let scene = GameScene(size: self.size)
+        let scene = GameScene(size: (currentScene?.frame.size)!)
         currentScene?.presentScene(scene)
         
     }

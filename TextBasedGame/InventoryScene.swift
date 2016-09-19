@@ -16,7 +16,8 @@ class InventoryScene: SKScene {
     var groupBtn: SKNode!
     
     
-    func createBackButton() {
+    
+    func createButtons() {
         
         let transition = SceneTransition(size: self.size, currentScene: self.view!)
         
@@ -47,8 +48,9 @@ class InventoryScene: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
+        print("somethingHappened")
         createBackground()
-        createBackButton()
+        createButtons()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

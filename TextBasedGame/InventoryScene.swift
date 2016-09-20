@@ -19,7 +19,7 @@ class InventoryScene: SKScene {
     
     func createButtons() {
         
-        let transition = SceneTransition(size: self.size, currentScene: self.view!)
+        let transition = SceneTransition(currentScene: self.view!)
         
         backBtn = SKButton(defaultButtonImage: "button_top_left", activeButtonImage: "button_top_left_a", text: "back", buttonAction: transition.moveBack)
         backBtn.position = CGPoint(x: background.size.width * 0.145, y: frame.size.height - frame.size.height*0.04)

@@ -12,10 +12,17 @@ import GameplayKit
 
 class Character: GKEntity {
     
-    init(imageName: String) {
+    init(imageName: String, textureAtlas: String, status: Status) {
         super.init()
         
         let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: imageName))
+        let animationComponent = MovementComponent(textureAtlas: textureAtlas, spriteComponent: spriteComponent )
+
+        spriteComponent.node.zPosition = 3
+        
         addComponent(spriteComponent)
+        addComponent(animationComponent)
+        addComponent(StatusComponent(status: status))
+        
     }
 }

@@ -39,7 +39,7 @@ class SceneTransition: SKScene {
         super.init(size: size)
     }
 
-    init(size: CGSize, currentScene: SKView) {
+    init(currentScene: SKView) {
         super.init()
         self.currentScene = currentScene
     }

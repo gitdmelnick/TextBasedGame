@@ -22,6 +22,8 @@ class GroupScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         createBackground()
+       
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

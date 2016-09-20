@@ -29,9 +29,11 @@ class GameScene: SKScene, UITextFieldDelegate {
     
     var textField: UITextField!
     
+    var playerArr: [Character]?
+    
     func initializeButtons() {
         
-        let transition = SceneTransition(size: self.size, currentScene: self.view!)
+        let transition = SceneTransition(currentScene: self.view!)
         
         inputBtn = SKButton(defaultButtonImage: "button_top_left", activeButtonImage: "button_top_left_a", text: "Input", buttonAction: activateTextfield)
         inputBtn.position = CGPoint(x: UIFrame.size.width * 0.145, y: UIFrame.size.height - UIFrame.size.width * 0.072)
@@ -110,6 +112,12 @@ class GameScene: SKScene, UITextFieldDelegate {
         
         let level = Level(bgImageName: "bg_sky_d_1", fgImageName: "fg_grass_1", position: CGPoint(x: 0, y: UIFrame.frame.size.height))
         entityManager.add(level)
+        
+        let playerCharacter = Character(imageName: "pc_frame_0", textureAtlas: "character_sprites", status: .Friendly)
+        let playerNode = playerCharacter.componentForClass(SpriteComponent.self)?.node
+        playerNode?.position = CGPoint(x: (playerNode?.size.width)! * 2, y: UIFrame.frame.size.height + level.componentForClass(SpriteComponent.self)!.node.frame.size.height/2)
+        playerArr?.append(playerCharacter)
+        entityManager.add(playerCharacter)
         /* Setup your scene here */
         
     }
@@ -125,6 +133,7 @@ class GameScene: SKScene, UITextFieldDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
+        entityManager.manageMovement(.Friendly)
         
     }
     

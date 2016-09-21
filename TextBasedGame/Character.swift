@@ -26,3 +26,8 @@ class Character: GKEntity {
         
     }
 }
+
+extension GKEntity {
+    
+    
+}

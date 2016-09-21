@@ -12,6 +12,8 @@ import GameplayKit
 
 class MovementComponent: GKComponent {
     
+    
+    
     var playerCharacterTextures: [SKTexture] = []
     var spriteComponent: SpriteComponent?
     

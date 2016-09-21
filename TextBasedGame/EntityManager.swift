@@ -26,7 +26,16 @@ class EntityManager {
         if let spriteNode = entity.componentForClass(SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
         }
+        else if let spriteNodes = entity.componentForClass(TerrainComponent.self)?.nodes {
+            for spriteNode in spriteNodes {
+                scene.addChild(spriteNode)
+            }
+        }
+        
+
     }
+    
+    
     
     func remove(entity: GKEntity) {
         
@@ -39,7 +48,8 @@ class EntityManager {
     }
     
     func entitiesWithStatus(status: Status) -> [GKEntity] {
-
+        
+        
         return entities.flatMap{
             entity in
             if let StatusComponent = entity.componentForClass(StatusComponent.self) {

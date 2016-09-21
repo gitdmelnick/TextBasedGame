@@ -115,7 +115,7 @@ class GameScene: SKScene, UITextFieldDelegate {
         
         let playerCharacter = Character(imageName: "pc_frame_0", textureAtlas: "character_sprites", status: .Friendly)
         let playerNode = playerCharacter.componentForClass(SpriteComponent.self)?.node
-        playerNode?.position = CGPoint(x: (playerNode?.size.width)! * 2, y: UIFrame.frame.size.height + level.componentForClass(SpriteComponent.self)!.node.frame.size.height/2)
+        playerNode?.position = CGPoint(x: (playerNode?.size.width)! * 2, y: UIFrame.frame.size.height + level.componentForClass(TerrainComponent.self)!.nodes.last!.frame.size.height/2)
         playerArr?.append(playerCharacter)
         entityManager.add(playerCharacter)
         /* Setup your scene here */

@@ -31,6 +31,7 @@
 		958FF61C1D9126FE00932855 /* ActionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF61B1D9126FE00932855 /* ActionStrategy.swift */; };
 		958FF61E1D912B2400932855 /* PlayerCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF61D1D912B2400932855 /* PlayerCharacter.swift */; };
 		958FF6201D913A4C00932855 /* StatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF61F1D913A4C00932855 /* StatusComponent.swift */; };
+		958FF6221D92B4A900932855 /* TerrainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF6211D92B4A900932855 /* TerrainComponent.swift */; };
 		95C3FFDB1D8C35F4002BD360 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C3FFDA1D8C35F4002BD360 /* Attributes.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		958FF61B1D9126FE00932855 /* ActionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionStrategy.swift; sourceTree = "<group>"; };
 		958FF61D1D912B2400932855 /* PlayerCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharacter.swift; sourceTree = "<group>"; };
 		958FF61F1D913A4C00932855 /* StatusComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusComponent.swift; sourceTree = "<group>"; };
+		958FF6211D92B4A900932855 /* TerrainComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainComponent.swift; sourceTree = "<group>"; };
 		95C3FFDA1D8C35F4002BD360 /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 		951B15B91D8BDFA00060D25A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				958FF6211D92B4A900932855 /* TerrainComponent.swift */,
 				951B15BA1D8BDFB70060D25A /* SpriteComponent.swift */,
 				951B15BC1D8BE0AA0060D25A /* MovementComponent.swift */,
 				95C3FFDA1D8C35F4002BD360 /* Attributes.swift */,
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				958FF6221D92B4A900932855 /* TerrainComponent.swift in Sources */,
 				958FF61C1D9126FE00932855 /* ActionStrategy.swift in Sources */,
 				951E92851D87DB1500BB5818 /* GameScene.swift in Sources */,
 				951B15BF1D8BED640060D25A /* Level.swift in Sources */,

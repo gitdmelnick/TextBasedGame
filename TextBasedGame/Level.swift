@@ -15,18 +15,17 @@ class Level: GKEntity {
     init(bgImageName: String, fgImageName: String, position: CGPoint) {
         super.init()
         
-        let background = SpriteComponent(texture: SKTexture(imageNamed: bgImageName))
-        background.node.anchorPoint = CGPointZero
-        background.node.position = position
-        background.node.zPosition = 0
+        let terrainComponent = TerrainComponent(background: SKTexture(imageNamed: bgImageName), foreground: SKTexture(imageNamed: fgImageName))
+       
+        terrainComponent.nodes.first?.anchorPoint = CGPointZero
+        terrainComponent.nodes.first?.position = position
+        terrainComponent.nodes.first?.zPosition = 0
         
-        let foreground = SpriteComponent(texture: SKTexture(imageNamed: fgImageName))
-        foreground.node.anchorPoint = CGPointZero
-        foreground.node.position = position
-        foreground.node.zPosition = 1
+        terrainComponent.nodes.last?.anchorPoint = CGPointZero
+        terrainComponent.nodes.last?.position = position
+        terrainComponent.nodes.last?.zPosition = 1
         
-        addComponent(background)
-        addComponent(foreground)
+        addComponent(terrainComponent)
         
     }
 }

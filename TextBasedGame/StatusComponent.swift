@@ -12,11 +12,23 @@ import SpriteKit
 
 
 enum Status: Int {
-    case Friendly = 1
-    case Neutral = 2
+    case Player = 1
+    case Friendly = 2
     case Hostile = 3
     
-    static let allValues = [Friendly, Neutral, Hostile]
+    static let allValues = [Player, Friendly, Hostile]
+    
+    func oppositeStatus() -> Status {
+        switch self {
+        case .Player:
+            return .Hostile
+        case .Friendly:
+            return .Hostile
+        case .Hostile:
+            return .Player
+        }
+    }
+    
 }
 
 class StatusComponent: GKComponent {

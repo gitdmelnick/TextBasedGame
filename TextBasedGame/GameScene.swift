@@ -111,7 +111,7 @@ class GameScene: SKScene, UITextFieldDelegate {
         initializeButtons()
         
         let level = Level(bgImageName: "bg_sky_d_1", fgImageName: "fg_grass_1", position: CGPoint(x: 0, y: UIFrame.frame.size.height))
-        entityManager.add(level)
+        entityManager.addLevel(level)
         
         let playerCharacter = Character(imageName: "pc_frame_0", textureAtlas: "character_sprites", status: .Friendly)
         let playerNode = playerCharacter.componentForClass(SpriteComponent.self)?.node

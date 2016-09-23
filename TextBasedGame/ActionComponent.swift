@@ -10,9 +10,17 @@ import Foundation
 import GameplayKit
 import SpriteKit
 
+enum Action {
+    
+}
+
 class ActionComponent: GKComponent {
     
     override init() {
         super.init()
+    }
+    
+    func performAction(action: Action) {
+        
     }
 }

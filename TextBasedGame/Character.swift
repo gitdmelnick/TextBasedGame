@@ -12,6 +12,7 @@ import GameplayKit
 
 class Character: GKEntity {
     
+    
     init(imageName: String, textureAtlas: String, status: Status) {
         super.init()
         
@@ -20,9 +21,12 @@ class Character: GKEntity {
 
         spriteComponent.node.zPosition = 3
         
+        let attributesComponent = AttributesComponent()
+        
         addComponent(spriteComponent)
         addComponent(animationComponent)
         addComponent(StatusComponent(status: status))
+        addComponent(attributesComponent)
         
     }
 }

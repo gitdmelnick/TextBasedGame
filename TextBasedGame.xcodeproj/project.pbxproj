@@ -29,10 +29,12 @@
 		952704EE1D90245700D28D1D /* ActionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952704ED1D90245700D28D1D /* ActionComponent.swift */; };
 		958E18DF1D9011CB00BD3C8C /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E18DE1D9011CB00BD3C8C /* SceneTransition.swift */; };
 		958FF61C1D9126FE00932855 /* ActionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF61B1D9126FE00932855 /* ActionStrategy.swift */; };
-		958FF61E1D912B2400932855 /* PlayerCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF61D1D912B2400932855 /* PlayerCharacter.swift */; };
 		958FF6201D913A4C00932855 /* StatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF61F1D913A4C00932855 /* StatusComponent.swift */; };
 		958FF6221D92B4A900932855 /* TerrainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF6211D92B4A900932855 /* TerrainComponent.swift */; };
-		95C3FFDB1D8C35F4002BD360 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C3FFDA1D8C35F4002BD360 /* Attributes.swift */; };
+		958FF6241D950A2400932855 /* StatsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF6231D950A2400932855 /* StatsComponent.swift */; };
+		958FF6261D951CE200932855 /* AttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF6251D951CE200932855 /* AttackComponent.swift */; };
+		958FF6281D9524FA00932855 /* CharacterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FF6271D9524FA00932855 /* CharacterComponent.swift */; };
+		95C3FFDB1D8C35F4002BD360 /* AttributesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C3FFDA1D8C35F4002BD360 /* AttributesComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,10 +62,12 @@
 		952704ED1D90245700D28D1D /* ActionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionComponent.swift; sourceTree = "<group>"; };
 		958E18DE1D9011CB00BD3C8C /* SceneTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		958FF61B1D9126FE00932855 /* ActionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionStrategy.swift; sourceTree = "<group>"; };
-		958FF61D1D912B2400932855 /* PlayerCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharacter.swift; sourceTree = "<group>"; };
 		958FF61F1D913A4C00932855 /* StatusComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusComponent.swift; sourceTree = "<group>"; };
 		958FF6211D92B4A900932855 /* TerrainComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainComponent.swift; sourceTree = "<group>"; };
-		95C3FFDA1D8C35F4002BD360 /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		958FF6231D950A2400932855 /* StatsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsComponent.swift; sourceTree = "<group>"; };
+		958FF6251D951CE200932855 /* AttackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackComponent.swift; sourceTree = "<group>"; };
+		958FF6271D9524FA00932855 /* CharacterComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterComponent.swift; sourceTree = "<group>"; };
+		95C3FFDA1D8C35F4002BD360 /* AttributesComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributesComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +87,6 @@
 				951B15B71D8BDF3A0060D25A /* Character.swift */,
 				951B15BE1D8BED640060D25A /* Level.swift */,
 				951B15C01D8BF1820060D25A /* EntityManager.swift */,
-				958FF61D1D912B2400932855 /* PlayerCharacter.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -94,9 +97,12 @@
 				958FF6211D92B4A900932855 /* TerrainComponent.swift */,
 				951B15BA1D8BDFB70060D25A /* SpriteComponent.swift */,
 				951B15BC1D8BE0AA0060D25A /* MovementComponent.swift */,
-				95C3FFDA1D8C35F4002BD360 /* Attributes.swift */,
+				95C3FFDA1D8C35F4002BD360 /* AttributesComponent.swift */,
 				952704ED1D90245700D28D1D /* ActionComponent.swift */,
 				958FF61F1D913A4C00932855 /* StatusComponent.swift */,
+				958FF6231D950A2400932855 /* StatsComponent.swift */,
+				958FF6271D9524FA00932855 /* CharacterComponent.swift */,
+				958FF6251D951CE200932855 /* AttackComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -251,10 +257,12 @@
 				958FF6201D913A4C00932855 /* StatusComponent.swift in Sources */,
 				951B159C1D894DF60060D25A /* StatsScene.swift in Sources */,
 				951E92811D87DB1500BB5818 /* AppDelegate.swift in Sources */,
+				958FF6281D9524FA00932855 /* CharacterComponent.swift in Sources */,
 				950463861D89485A0037C37A /* InventoryScene.swift in Sources */,
-				95C3FFDB1D8C35F4002BD360 /* Attributes.swift in Sources */,
-				958FF61E1D912B2400932855 /* PlayerCharacter.swift in Sources */,
+				95C3FFDB1D8C35F4002BD360 /* AttributesComponent.swift in Sources */,
+				958FF6261D951CE200932855 /* AttackComponent.swift in Sources */,
 				951E92A01D87E16C00BB5818 /* SKButton.swift in Sources */,
+				958FF6241D950A2400932855 /* StatsComponent.swift in Sources */,
 				958E18DF1D9011CB00BD3C8C /* SceneTransition.swift in Sources */,
 				951B15BD1D8BE0AA0060D25A /* MovementComponent.swift in Sources */,
 				951B159E1D894E230060D25A /* GroupScene.swift in Sources */,

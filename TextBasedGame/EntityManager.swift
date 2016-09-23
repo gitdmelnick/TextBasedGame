@@ -16,6 +16,12 @@ class EntityManager {
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
     
+    lazy var componentSystems: [GKComponentSystem] = {
+        let attackSystem = GKComponentSystem(componentClass: AttackComponent.self)
+        let characterSystem = GKComponentSystem(componentClass: CharacterComponent.self)
+        return [attackSystem, characterSystem]
+    }()
+    
     init(scene: SKScene) {
         self.scene = scene
     }
@@ -23,19 +29,23 @@ class EntityManager {
     func add(entity: GKEntity) {
         entities.insert(entity)
         
+        for componentSystem in componentSystems {
+            componentSystem.addComponentWithEntity(entity)
+        }
+        
         if let spriteNode = entity.componentForClass(SpriteComponent.self)?.node {
             scene.addChild(spriteNode)
         }
-        else if let spriteNodes = entity.componentForClass(TerrainComponent.self)?.nodes {
+      
+    }
+    
+    func addLevel(entity: GKEntity) {
+        if let spriteNodes = entity.componentForClass(TerrainComponent.self)?.nodes {
             for spriteNode in spriteNodes {
                 scene.addChild(spriteNode)
             }
         }
-        
-
     }
-    
-    
     
     func remove(entity: GKEntity) {
         
@@ -48,7 +58,6 @@ class EntityManager {
     }
     
     func entitiesWithStatus(status: Status) -> [GKEntity] {
-        
         
         return entities.flatMap{
             entity in
@@ -76,5 +85,7 @@ class EntityManager {
             }
         }
     }
+    
+
     
 }
